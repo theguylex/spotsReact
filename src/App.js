@@ -2,27 +2,43 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { byPrefixAndName } from '@awesome.me/kit-KIT_CODE/icons'
 import "./App.css";
-import image1 from "./assets/image1.png";
-import image2 from "./assets/image2.png";
-import image3 from "./assets/image3.png";
-import image4 from "./assets/image4.png";
-import image5 from "./assets/image5.png";
-import image6 from "./assets/image6.png";
-import defpic from "./assets/defpic.png";
-import Logo from "./assets/Logo.jpg";
+import img1 from "./assets/img1.png";
+import img2 from "./assets/img2.png";
+import img3 from "./assets/img3.png";
+import img4 from "./assets/img4.png";
+import img5 from "./assets/img5.png";
+import img6 from "./assets/img6.png";
+import defpic from "./assets/defaultpic.png";
+import logo from "./assets/logo.jpg";
 
 function App() {
   const initialCards = [
-    { title: "Val Thorens", image: image1, liked: false },
-    { title: "Restaurant terrace", image: image2, liked: false },
-    { title: "An outdoor cafe", image: image3, liked: false },
+    { 
+      title: "Val Thorens", 
+      image: img1, 
+      liked: false 
+    },
+    { title: "Restaurant terrace", 
+      image: img2, 
+      liked: false 
+    },
+    { title: "An outdoor cafe", 
+      image: img3, 
+      liked: false 
+    },
     {
       title: "A very long bridge, over the forest...",
-      image: image4,
+      image: img4,
       liked: false,
     },
-    { title: "Tunnel with morning light", image: image5, liked: false },
-    { title: "Mountain house", image: image6, liked: false },
+    { title: "Tunnel with morning light", 
+      image: img5, 
+      liked: false 
+    },
+    { title: "Mountain house", 
+      image: img6, 
+      liked: false 
+    },
   ];
 
   const [cards, setCards] = useState(initialCards);
@@ -43,11 +59,7 @@ function App() {
   function openImageModal(card) {
     setModalContent(
       <div className="modal">
-        <img
-          src={card.image}
-          alt={card.title}
-          style={{ width: "100%", maxWidth: "500px", borderRadius: "12px" }}
-        />
+        <img src={card.image} alt={card.title} style={{ width: "100%", maxWidth: "500px", borderRadius: "12px" }} />
         <h3 style={{ textAlign: "center", marginTop: "10px" }}>{card.title}</h3>
         <button onClick={() => setModalContent(null)}>Close</button>
       </div>
@@ -90,19 +102,10 @@ function App() {
       <div className="modal">
         <h2>Edit Profile</h2>
         <form>
-          <input
-            defaultValue={profile.name}
-            onChange={(e) => (newName = e.target.value)}
-            placeholder="Name"
-          />
-          <textarea
-            defaultValue={profile.description}
-            onChange={(e) => (newDesc = e.target.value)}
-            placeholder="Description"
-          />
+          <input defaultValue={profile.name} onChange={(e) => (newName = e.target.value)} placeholder="Name" />
+          <textarea defaultValue={profile.description} onChange={(e) => (newDesc = e.target.value)} placeholder="Description" />
           <input type="file" accept="image/*" onChange={handleFileChange} />
-          <button
-            onClick={(event) => {
+          <button onClick={(event) => {
               event.preventDefault();
               setProfile({
                 name: newName,
@@ -139,13 +142,9 @@ function App() {
       <div className="modal">
         <h2>New Post</h2>
         <form>
-          <input
-            placeholder="Title"
-            onChange={(e) => (title = e.target.value)}
-          />
+          <input placeholder="Title" onChange={(e) => (title = e.target.value)} />
           <input type="file" accept="image/*" onChange={handleImageChange} />
-          <button
-            onClick={() => {
+          <button onClick={() => {
               if (title && image) {
                 setCards([{ title, image, liked: false }, ...cards]);
                 setModalContent(null);
@@ -163,17 +162,13 @@ function App() {
   return (
     <div>
       <header className="logo-icon">
-        <img src={Logo} alt="Profile" style={{}} />
+        <img src={logo} alt="Profile" style={{}} />
       </header>
 
       <main>
         <div className="profile-container">
           <div className="img-details">
-            <img
-              src={defpic}
-              alt="Profile"
-              style={{ width: "190px", height: "190px", borderRadius: "12px" }}
-            />
+            <img src={defpic} alt="Profile" style={{ width: "190px", height: "190px", borderRadius: "12px" }} />
             <div className="profile-details">
               <h2>{profile.name}</h2>
               <p>{profile.description}</p>
