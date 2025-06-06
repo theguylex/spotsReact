@@ -1,38 +1,475 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: rgba(252, 245, 229, 1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*Header*/
+.logo-icon {
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 20%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main {
+  background: rgba(252, 245, 229, 1);
+  padding: 0px 35px;
+}
+
+/*Profile Section*/
+
+.profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid rgba(33, 33, 33, 1);
+  padding: 20px 0;
+}
+
+.img-details {
+  display: flex;
+  gap: 20px;
+}
+
+.profile-container img {
+  width: 190px;
+  height: 190px;
+  border-radius: 12px;
+}
+
+/* Profile Details */
+.profile-details {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.profile-details h2 {
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  width: 420px;
+  height: 96px;
+  white-space: wrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+  max-width: 600px;
+}
+
+.profile-details p {
+  width: 420px;
+  height: 48px;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: rgba(33, 33, 33, 0.7);
+  max-width: 600px;
+  white-space: wrap;
+  text-overflow: ellipsis;
+}
+
+/* Edit Profile */
+.fa-pen {
+  font-size: 12px;
+}
+
+.edit-profile button {
+  display: inline-block;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  opacity: 0.7;
+  color: rgba(33, 33, 33, 1);
+  text-decoration: none;
+  transition: all .8s ease;
+  margin-top: 12px;
+  border: none;
+  background-color: transparent;
+}
+
+.edit-profile button:hover {
+  color: black;
+}
+
+.new-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.new-post button {
+  /* height: 52px; */
+  padding: 18px 32px;
+  /* gap: 8px; */
+  border-radius: 8px;
+  color: rgba(252, 245, 229, 1);
+  background: rgba(33, 33, 33, 1);
+  border: none;
+  cursor: pointer;
+  transition: all .8s ease;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+.new-post-button {
+  background-color: #222;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  /* gap: 8px; */
+  /* transition: background-color 0.2s; */
+}
+
+.new-post button:hover {
+  background-color: #444;
+}
+
+/* For the plus icon */
+.new-post-button::before {
+  /* content: "+"; */
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* gallery */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.img1,
+.img2,
+.img3,
+.img4,
+.img5,
+.img6 {
+  height: 413px;
+  width: 413px;
+  border-radius: 15px;
+}
+
+.gallery-item span {
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.gallery-item img {
+  width: 413px;
+  height: 413px;
+  /* Adjust height as needed */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.fa-heart {
+  color: rgb(121, 120, 120);
+  transition: all .8s ease;
+}
+
+.fa-heart:hover {
+  color: black;
+}
+
+/* cards */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+  /*px on 0 is redundant*/
+}
+
+.card-footer span {
+  font-weight: 500;
+  font-size: 20px;
+  /* font-family: "Poppins"; no generic font-family here */
+}
+
+.card-footer img {
+  cursor: pointer;
+}
+
+/* footer */
+
+/* Logo */
+.logo-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 20px; */
+  height: 40px;
+}
+
+.copyright {
+  padding: 0px 31px;
+}
+
+.copy-container {
+  padding: 40px 0;
+  border-top: 1px solid;
+}
+
+.copyright p {
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: rgba(33, 33, 33, 0.7);
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Poppins, sans-serif;
+
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  z-index: 9999;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal button {
+  background: black;
   color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: .3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.modal button:hover {
+  background-color: #444;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.modal button[disabled] {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* small tablets */
+@media (min-width:768px) and (max-width:991px) {
+  .profile-container {
+    flex-direction: column;
+    gap: 10px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Extra small devices */
+@media (min-width:481px) and (max-width:767px) {
+  .img-details {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-container {
+    flex-direction: column;
+    /* gap: 10px; */
+  }
+
+  .edit-profile {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width:320px) and (max-width: 480px) {
+
+  .img-details {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-container {
+    flex-direction: column;
+    /* gap: 10px; */
+  }
+
+  .edit-profile {
+    margin-bottom: 10px;
+  }
+
+  .gallery-item img {
+    height: 288px;
+    width: 288px;
+  }
+
+  .logo-icon {
+    width: 100%;
+    height: 40%;
+    margin-top: 0;
+    border-bottom-width: 1px;
+    background: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+  }
+
+  .profile {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-left: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    height: auto;
+    justify-content: center;
+  }
+
+  /* Profile Image */
+  .profile>img {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    margin-top: -25px;
+  }
+
+  /* Profile Details */
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 10px;
+  }
+
+  .profile-details h2 {
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    height: auto;
+    width: 330px;
+    /* margin-left: auto; */
+    text-align: center;
+    padding: 0px 20px;
+  }
+
+  .profile-details p {
+    width: auto;
+    height: auto;
+    padding: 0px 40px;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17px;
+    /* border: 1px solid; */
+    margin-left: auto;
+    text-align: center;
+    max-height: 68px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .edit-profile {
+    text-align: center;
+    text-decoration: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .new-post {
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+
+  .new-post button {
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .card-footer span {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .card-footer>img {
+    margin: 0;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer {
+    padding: 0 35px;
+  }
+
+  .copyright {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    color: rgba(33, 33, 33, 0.7);
+    margin-bottom: 10px;
+    /* border-top: 1px solid rgba(33, 33, 33, 0.7); */
+    padding: 20px 20px;
+  }
+
+  body {
+    overflow-x: hidden;
   }
 }
