@@ -16,15 +16,15 @@ function App() {
     { 
       title: "Val Thorens", 
       image: img1, 
-      liked: false 
+      liked: false, 
     },
     { title: "Restaurant terrace", 
       image: img2, 
-      liked: false 
+      liked: false,
     },
     { title: "An outdoor cafe", 
       image: img3, 
-      liked: false 
+      liked: false, 
     },
     {
       title: "A very long bridge, over the forest...",
@@ -33,11 +33,11 @@ function App() {
     },
     { title: "Tunnel with morning light", 
       image: img5, 
-      liked: false 
+      liked: false, 
     },
     { title: "Mountain house", 
       image: img6, 
-      liked: false 
+      liked: false, 
     },
   ];
 
