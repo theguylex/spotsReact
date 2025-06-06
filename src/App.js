@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { byPrefixAndName } from '@awesome.me/kit-KIT_CODE/icons'
 import "./App.css";
@@ -9,7 +9,7 @@ import image4 from "./assets/image4.png";
 import image5 from "./assets/image5.png";
 import image6 from "./assets/image6.png";
 import defpic from "./assets/defpic.png";
-
+import Logo from "./assets/Logo.jpg";
 
 function App() {
   const initialCards = [
@@ -54,6 +54,22 @@ function App() {
     );
   }
 
+  useEffect (() => {
+    if (!modalContent) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setModalContent(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [modalContent]);
+
   function openEditProfile() {
     let newName = profile.name;
     let newDesc = profile.description;
@@ -73,30 +89,33 @@ function App() {
     setModalContent(
       <div className="modal">
         <h2>Edit Profile</h2>
-        <input
-          defaultValue={profile.name}
-          onChange={(e) => (newName = e.target.value)}
-          placeholder="Name"
-        />
-        <textarea
-          defaultValue={profile.description}
-          onChange={(e) => (newDesc = e.target.value)}
-          placeholder="Description"
-        />
-        <input type="file" accept="image/*" onChange={handleFileChange} />
-        <button
-          onClick={() => {
-            setProfile({
-              name: newName,
-              description: newDesc,
-              image: newImage,
-            });
-            setModalContent(null);
-          }}
-        >
-          Save
-        </button>
-        <button onClick={() => setModalContent(null)}>Cancel</button>
+        <form>
+          <input
+            defaultValue={profile.name}
+            onChange={(e) => (newName = e.target.value)}
+            placeholder="Name"
+          />
+          <textarea
+            defaultValue={profile.description}
+            onChange={(e) => (newDesc = e.target.value)}
+            placeholder="Description"
+          />
+          <input type="file" accept="image/*" onChange={handleFileChange} />
+          <button
+            onClick={(event) => {
+              event.preventDefault();
+              setProfile({
+                name: newName,
+                description: newDesc,
+                image: newImage,
+              });
+              setModalContent(null);
+            }}
+          >
+            Save
+          </button>
+          <button onClick={() => setModalContent(null)}>Cancel</button>
+        </form>
       </div>
     );
   }
@@ -143,13 +162,15 @@ function App() {
 
   return (
     <div>
-      <header className="logo-icon">SPOTS</header>
+      <header className="logo-icon">
+        <img src={Logo} alt="Profile" style={{}} />
+      </header>
 
       <main>
         <div className="profile-container">
           <div className="img-details">
             <img
-              src= {defpic}
+              src={defpic}
               alt="Profile"
               style={{ width: "190px", height: "190px", borderRadius: "12px" }}
             />
@@ -184,11 +205,17 @@ function App() {
         </section>
       </main>
 
-      {modalContent && <div className="modal-overlay">{modalContent}</div>}
+      {modalContent && (
+        <div className="modal-overlay" onClick={() => setModalContent(null)}>
+          {modalContent}
+        </div>
+      )}
 
-      <footer className="copy-container">
+      <footer>
         <div className="copyright">
-          <p>2024 © Spots</p>
+          <div className="copy-container">
+            <p>2024 © Spots</p>
+          </div>
         </div>
       </footer>
     </div>
